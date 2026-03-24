@@ -125,12 +125,21 @@ export default function App() {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-brand-blue/95 backdrop-blur-md py-4 shadow-2xl' : 'bg-transparent py-8'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.scrollTo(0, 0)}>
-            <img 
-              src="logo.jpeg" 
-              alt="Krishna Academy Logo" 
-              className="w-12 h-12 rounded-2xl object-cover transition-transform group-hover:rotate-12"
-              referrerPolicy="no-referrer"
-            />
+            <div className="w-12 h-12 bg-brand-yellow rounded-2xl flex items-center justify-center overflow-hidden">
+              <img 
+                src="logo.jpeg" 
+                alt="Krishna Academy Logo" 
+                className="w-full h-full object-cover transition-transform group-hover:rotate-12"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const parent = e.currentTarget.parentElement;
+                  if (parent) {
+                    parent.innerHTML = '<span class="text-brand-blue font-black text-2xl">K</span>';
+                  }
+                }}
+              />
+            </div>
             <div className="flex flex-col">
               <span className="text-white font-black text-xl leading-none tracking-tighter uppercase">KRISHNA</span>
               <span className="text-brand-yellow text-[10px] font-black tracking-[0.2em] leading-none uppercase mt-1">NEET/IIT ACADEMY</span>
@@ -174,7 +183,21 @@ export default function App() {
             >
               <div className="flex justify-between items-center mb-16">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-brand-yellow rounded-2xl flex items-center justify-center font-black text-brand-blue text-2xl">K</div>
+                  <div className="w-12 h-12 bg-brand-yellow rounded-2xl flex items-center justify-center overflow-hidden">
+                    <img 
+                      src="https://instagram.fhyd11-3.fna.fbcdn.net/v/t51.82787-19/650272276_18061260059354793_2440635261172673989_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fhyd11-3.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2gGmKafttao7uvr6lIBMBFevpJJ3IRcMoeodJpiin3sKoLZq59OJEr00ImMuQX_49b8&_nc_ohc=vhK1mgbodvoQ7kNvwEudQp5&_nc_gid=_uB__qlzEO1Txm7HBD--Vw&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Afzxgx-P2ERkO1N6C4rx_TItbDjjOwPVTRsx8buNGlkceg&oe=69C849F4&_nc_sid=7a9f4b" 
+                      alt="Logo" 
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        const parent = e.currentTarget.parentElement;
+                        if (parent) {
+                          parent.innerHTML = '<span class="text-brand-blue font-black text-2xl">K</span>';
+                        }
+                      }}
+                    />
+                  </div>
                   <span className="text-white font-black text-xl uppercase tracking-tighter">KRISHNA</span>
                 </div>
                 <button onClick={() => setIsMenuOpen(false)} className="text-white p-2">
@@ -752,12 +775,21 @@ export default function App() {
           <div className="grid md:grid-cols-12 gap-20 mb-32">
             <div className="md:col-span-6">
               <div className="flex items-center gap-4 mb-10">
-                <img 
-                  src="logo.jpeg" 
-                  alt="Krishna Academy Logo" 
-                  className="w-16 h-16 rounded-[1.5rem] object-cover"
-                  referrerPolicy="no-referrer"
-                />
+                <div className="w-16 h-16 bg-brand-yellow rounded-[1.5rem] flex items-center justify-center overflow-hidden">
+                  <img 
+                    src="https://instagram.fhyd11-3.fna.fbcdn.net/v/t51.82787-19/650272276_18061260059354793_2440635261172673989_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fhyd11-3.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2gGmKafttao7uvr6lIBMBFevpJJ3IRcMoeodJpiin3sKoLZq59OJEr00ImMuQX_49b8&_nc_ohc=vhK1mgbodvoQ7kNvwEudQp5&_nc_gid=_uB__qlzEO1Txm7HBD--Vw&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Afzxgx-P2ERkO1N6C4rx_TItbDjjOwPVTRsx8buNGlkceg&oe=69C849F4&_nc_sid=7a9f4b" 
+                    alt="Krishna Academy Logo" 
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      const parent = e.currentTarget.parentElement;
+                      if (parent) {
+                        parent.innerHTML = '<span class="text-brand-blue font-black text-3xl">K</span>';
+                      }
+                    }}
+                  />
+                </div>
                 <div className="flex flex-col">
                   <span className="text-3xl font-black leading-none tracking-tighter uppercase">KRISHNA</span>
                   <span className="text-brand-yellow text-xs font-black tracking-[0.3em] leading-none uppercase mt-2">NEET/IIT ACADEMY</span>
