@@ -127,7 +127,7 @@ export default function App() {
           <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.scrollTo(0, 0)}>
             <div className="w-12 h-12 bg-brand-yellow rounded-2xl flex items-center justify-center overflow-hidden">
               <img 
-                src="logo.jpeg" 
+                src="/logo.jpeg" 
                 alt="Krishna Academy Logo" 
                 className="w-full h-full object-cover transition-transform group-hover:rotate-12"
                 referrerPolicy="no-referrer"
@@ -185,7 +185,7 @@ export default function App() {
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-brand-yellow rounded-2xl flex items-center justify-center overflow-hidden">
                     <img 
-                      src="https://instagram.fhyd11-3.fna.fbcdn.net/v/t51.82787-19/650272276_18061260059354793_2440635261172673989_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fhyd11-3.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2gGmKafttao7uvr6lIBMBFevpJJ3IRcMoeodJpiin3sKoLZq59OJEr00ImMuQX_49b8&_nc_ohc=vhK1mgbodvoQ7kNvwEudQp5&_nc_gid=_uB__qlzEO1Txm7HBD--Vw&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Afzxgx-P2ERkO1N6C4rx_TItbDjjOwPVTRsx8buNGlkceg&oe=69C849F4&_nc_sid=7a9f4b" 
+                      src="/logo.jpeg" 
                       alt="Logo" 
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
@@ -777,7 +777,7 @@ export default function App() {
               <div className="flex items-center gap-4 mb-10">
                 <div className="w-16 h-16 bg-brand-yellow rounded-[1.5rem] flex items-center justify-center overflow-hidden">
                   <img 
-                    src="https://instagram.fhyd11-3.fna.fbcdn.net/v/t51.82787-19/650272276_18061260059354793_2440635261172673989_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fhyd11-3.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2gGmKafttao7uvr6lIBMBFevpJJ3IRcMoeodJpiin3sKoLZq59OJEr00ImMuQX_49b8&_nc_ohc=vhK1mgbodvoQ7kNvwEudQp5&_nc_gid=_uB__qlzEO1Txm7HBD--Vw&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Afzxgx-P2ERkO1N6C4rx_TItbDjjOwPVTRsx8buNGlkceg&oe=69C849F4&_nc_sid=7a9f4b" 
+                    src="/logo.jpeg" 
                     alt="Krishna Academy Logo" 
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
