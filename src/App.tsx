@@ -596,9 +596,10 @@ export default function App() {
               <div className="aspect-square rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] border-8 border-slate-50">
                 <img 
                   src="https://lh3.googleusercontent.com/p/AF1QipO5dTva128I2AMchZg0DPJwy1OLl5yzi5k5F2ng=s1000" 
-                  alt="Krishna Academy Facility" 
+                  alt="Krishna Academy Residential Facility and Hostel" 
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
               <div className="absolute -bottom-10 -right-10 bg-brand-blue text-white p-10 rounded-[3rem] shadow-2xl hidden md:block">
@@ -819,6 +820,7 @@ export default function App() {
                     alt="Krishna Academy Logo" 
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
                       const parent = e.currentTarget.parentElement;
