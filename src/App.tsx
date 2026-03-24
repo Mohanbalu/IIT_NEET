@@ -18,6 +18,7 @@ import {
   Layout
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import Markdown from 'react-markdown';
 
 import { GoogleGenAI } from "@google/genai";
 
@@ -57,7 +58,13 @@ export default function App() {
           - Admissions: Classes begin March 20, 2026. Limited seats available.
           - Facilities: Hostel available with food, security, and study halls.
           - Contact: Phone 9704727292, Location Pattabhipuram Main Road, Guntur.
-          Be encouraging and concise. If you don't know an answer, direct them to call 9704727292.`
+          
+          CRITICAL FORMATTING RULES:
+          1. DO NOT use Markdown symbols like asterisks (**) or bullet points (*) in your responses. 
+          2. Use plain, clean text for a professional look. 
+          3. Avoid bolding text unless absolutely necessary. 
+          4. Keep responses concise and friendly.
+          5. If you don't know an answer, direct them to call 9704727292.`
         }
       });
 
@@ -214,63 +221,67 @@ export default function App() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-12 mb-12 lg:mb-20 relative group"
+            className="lg:col-span-12 mb-12 lg:mb-20 relative group animate-tilt"
           >
-            {/* Animated Glow Background */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-brand-yellow/30 via-blue-500/30 to-brand-yellow/30 rounded-[2.5rem] blur-3xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+            {/* Animated Glow Background - Enhanced with more vibrant colors */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-brand-yellow/40 via-blue-400/40 to-brand-yellow/40 rounded-[2.5rem] blur-3xl opacity-40 group-hover:opacity-80 transition duration-1000"></div>
             
-            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-brand-blue/40 backdrop-blur-3xl shadow-2xl">
-              {/* Animated Gradient Border Overlay */}
-              <div className="absolute inset-0 opacity-20 bg-gradient-to-r from-brand-yellow via-brand-blue to-brand-yellow animate-gradient-border"></div>
+            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/20 bg-brand-blue/60 backdrop-blur-3xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)]">
+              {/* Animated Gradient Border Overlay - More visible */}
+              <div className="absolute inset-0 opacity-30 bg-gradient-to-r from-brand-yellow via-blue-500 to-brand-yellow animate-gradient-border"></div>
               
-              {/* Decorative inner glow */}
-              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-yellow/60 to-transparent"></div>
+              {/* Glass Reflection Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none"></div>
+              
+              {/* Decorative inner glow - Top and Bottom */}
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-yellow/80 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
               
               <div className="p-8 lg:p-14 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 relative z-10">
                 {/* Left Content */}
                 <div className="flex-1 text-center lg:text-left">
-                  <div className="inline-flex items-center gap-3 bg-brand-yellow/20 border border-brand-yellow/30 px-5 py-2 rounded-full mb-8 shadow-[0_0_20px_rgba(250,204,21,0.2)]">
-                    <span className="flex h-2.5 w-2.5">
+                  <div className="inline-flex items-center gap-3 bg-brand-yellow/20 border border-brand-yellow/40 px-5 py-2 rounded-full mb-8 shadow-[0_0_30px_rgba(250,204,21,0.3)]">
+                    <span className="flex h-3 w-3">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-yellow"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-yellow"></span>
                     </span>
-                    <span className="text-brand-yellow text-xs font-black uppercase tracking-[0.2em]">🔥 Admissions Open 2026</span>
+                    <span className="text-brand-yellow text-xs font-black uppercase tracking-[0.25em]">🔥 Admissions Open 2026</span>
                   </div>
                   
-                  <h2 className="text-4xl lg:text-6xl font-black text-white mb-6 tracking-tighter uppercase leading-[0.9]">
+                  <h2 className="text-4xl lg:text-7xl font-black text-white mb-6 tracking-tighter uppercase leading-[0.85]">
                     EAPCET | NEET | IIT <br />
-                    <span className="text-brand-yellow">Elite Coaching</span>
+                    <span className="text-brand-yellow drop-shadow-[0_0_15px_rgba(250,204,21,0.3)]">Elite Coaching</span>
                   </h2>
                   
-                  <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6 mb-10">
+                  <div className="flex flex-wrap justify-center lg:justify-start items-center gap-8 mb-12">
                     <div className="flex flex-col">
-                      <p className="text-white font-black text-2xl uppercase tracking-tighter">Short & Long Term</p>
-                      <p className="text-white/40 text-[10px] font-bold uppercase tracking-[0.3em]">Available Batches</p>
+                      <p className="text-white font-black text-3xl uppercase tracking-tighter leading-none">Short & Long Term</p>
+                      <p className="text-brand-yellow/60 text-[10px] font-bold uppercase tracking-[0.4em] mt-2">Available Batches</p>
                     </div>
-                    <div className="hidden lg:block w-px h-10 bg-white/10"></div>
-                    <div className="bg-white/5 border border-white/10 px-6 py-3 rounded-2xl backdrop-blur-md">
-                      <span className="text-brand-yellow text-sm font-black uppercase tracking-widest block">Starting March 20</span>
-                      <span className="text-white/30 text-[8px] font-bold uppercase tracking-widest">Limited Intake</span>
+                    <div className="hidden lg:block w-px h-12 bg-white/20"></div>
+                    <div className="bg-white/10 border border-white/20 px-8 py-4 rounded-2xl backdrop-blur-xl shadow-inner">
+                      <span className="text-brand-yellow text-base font-black uppercase tracking-widest block">Starting March 20</span>
+                      <span className="text-white/40 text-[9px] font-bold uppercase tracking-widest mt-1 block">Limited Intake Program</span>
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                     {[
-                      { text: 'Daily Tests', icon: <CheckCircle2 size={20} />, desc: 'Rigorous Practice' },
-                      { text: 'Expert Faculty', icon: <CheckCircle2 size={20} />, desc: 'Elite Mentorship' },
-                      { text: 'Rank Booster', icon: <CheckCircle2 size={20} />, desc: 'Score Optimization' }
+                      { text: 'Daily Tests', icon: <CheckCircle2 size={22} />, desc: 'Rigorous Practice' },
+                      { text: 'Expert Faculty', icon: <CheckCircle2 size={22} />, desc: 'Elite Mentorship' },
+                      { text: 'Rank Booster', icon: <CheckCircle2 size={22} />, desc: 'Score Optimization' }
                     ].map((item, i) => (
                       <motion.div 
                         key={i} 
-                        whileHover={{ y: -5, backgroundColor: 'rgba(255,255,255,0.08)' }}
-                        className="flex items-center gap-4 bg-white/5 border border-white/5 p-4 rounded-2xl transition-colors"
+                        whileHover={{ y: -8, backgroundColor: 'rgba(255,255,255,0.12)', borderColor: 'rgba(250,204,21,0.3)' }}
+                        className="flex items-center gap-5 bg-white/5 border border-white/10 p-5 rounded-[1.5rem] transition-all duration-300 backdrop-blur-sm"
                       >
-                        <div className="w-10 h-10 bg-brand-yellow/10 rounded-xl flex items-center justify-center text-brand-yellow">
+                        <div className="w-12 h-12 bg-brand-yellow/20 rounded-2xl flex items-center justify-center text-brand-yellow shadow-inner">
                           {item.icon}
                         </div>
                         <div className="flex flex-col text-left">
-                          <span className="text-white font-black text-xs uppercase tracking-tight">{item.text}</span>
-                          <span className="text-white/30 text-[9px] font-bold uppercase tracking-widest">{item.desc}</span>
+                          <span className="text-white font-black text-sm uppercase tracking-tight">{item.text}</span>
+                          <span className="text-white/40 text-[10px] font-bold uppercase tracking-widest mt-0.5">{item.desc}</span>
                         </div>
                       </motion.div>
                     ))}
@@ -278,35 +289,38 @@ export default function App() {
                 </div>
                 
                 {/* Right Content (CTA) */}
-                <div className="w-full lg:w-auto flex flex-col items-center lg:items-end gap-6">
+                <div className="w-full lg:w-auto flex flex-col items-center lg:items-end gap-8">
                   <div className="relative group/btn">
-                    <div className="absolute -inset-1.5 bg-brand-yellow blur-lg opacity-20 group-hover/btn:opacity-40 transition duration-500"></div>
+                    <div className="absolute -inset-2 bg-brand-yellow blur-xl opacity-30 group-hover/btn:opacity-60 transition duration-500"></div>
                     <button 
                       onClick={() => scrollToSection('lead-form')}
-                      className="relative bg-brand-yellow text-brand-blue px-14 py-7 rounded-[2rem] font-black text-2xl uppercase tracking-tighter flex items-center justify-center gap-5 hover:scale-105 transition-all active:scale-95 shadow-2xl shadow-brand-yellow/20"
+                      className="relative bg-brand-yellow text-brand-blue px-16 py-8 rounded-[2.5rem] font-black text-3xl uppercase tracking-tighter flex items-center justify-center gap-6 hover:scale-105 transition-all active:scale-95 shadow-[0_20px_40px_-10px_rgba(250,204,21,0.4)]"
                     >
                       Book Seat Now
-                      <ArrowRight size={28} className="group-hover/btn:translate-x-2 transition-transform" />
+                      <ArrowRight size={32} className="group-hover/btn:translate-x-3 transition-transform duration-300" />
                     </button>
                   </div>
                   
-                  <div className="flex flex-col items-center lg:items-end gap-2">
-                    <div className="flex items-center gap-3">
-                      <div className="flex -space-x-2">
-                        {[1,2,3].map(i => (
-                          <div key={i} className="w-6 h-6 rounded-full border border-brand-blue bg-slate-300 overflow-hidden">
-                            <img src={`https://i.pravatar.cc/100?u=${i+10}`} alt="Student" />
+                  <div className="flex flex-col items-center lg:items-end gap-3">
+                    <div className="flex items-center gap-4">
+                      <div className="flex -space-x-3">
+                        {[1,2,3,4].map(i => (
+                          <div key={i} className="w-8 h-8 rounded-full border-2 border-brand-blue bg-slate-300 overflow-hidden shadow-lg">
+                            <img src={`https://i.pravatar.cc/100?u=${i+20}`} alt="Student" />
                           </div>
                         ))}
                       </div>
-                      <span className="text-brand-yellow font-black text-[10px] uppercase tracking-[0.2em]">12 Seats Left</span>
+                      <div className="flex flex-col items-end">
+                        <span className="text-brand-yellow font-black text-xs uppercase tracking-[0.2em]">Only 12 Seats Left</span>
+                        <span className="text-white/30 text-[8px] font-bold uppercase tracking-widest">For 2026 Batch</span>
+                      </div>
                     </div>
-                    <div className="w-32 h-1 bg-white/10 rounded-full overflow-hidden">
+                    <div className="w-48 h-1.5 bg-white/10 rounded-full overflow-hidden shadow-inner">
                       <motion.div 
                         initial={{ width: 0 }}
-                        whileInView={{ width: '70%' }}
-                        transition={{ duration: 1.5, ease: "easeOut" }}
-                        className="h-full bg-brand-yellow"
+                        whileInView={{ width: '78%' }}
+                        transition={{ duration: 2, ease: "circOut" }}
+                        className="h-full bg-gradient-to-r from-brand-yellow/50 to-brand-yellow"
                       />
                     </div>
                   </div>
@@ -883,7 +897,9 @@ export default function App() {
                       ? 'bg-brand-blue text-white rounded-tr-none' 
                       : 'bg-white text-slate-700 shadow-sm border border-slate-100 rounded-tl-none'
                   }`}>
-                    {msg.text}
+                    <div className="markdown-body">
+                      <Markdown>{msg.text}</Markdown>
+                    </div>
                   </div>
                 </div>
               ))}

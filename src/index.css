@@ -77,10 +77,20 @@
   animation: tilt 10s infinite linear;
 }
 
-@keyframes gradient-border {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Markdown Body Styles */
+.markdown-body p {
+  margin-bottom: 0.5rem;
+}
+.markdown-body p:last-child {
+  margin-bottom: 0;
+}
+.markdown-body ul, .markdown-body ol {
+  margin-left: 1.25rem;
+  margin-bottom: 0.5rem;
+  list-style-type: disc;
+}
+.markdown-body li {
+  margin-bottom: 0.25rem;
 }
 
 .animate-gradient-border {
