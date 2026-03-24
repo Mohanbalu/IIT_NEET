@@ -127,7 +127,7 @@ export default function App() {
           <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.scrollTo(0, 0)}>
             <div className="w-12 h-12 bg-brand-yellow rounded-2xl flex items-center justify-center overflow-hidden">
               <img 
-                src="/logo.jpeg" 
+                src="https://res.cloudinary.com/djcl2t35x/image/upload/f_auto,q_auto/logo_hn38lc" 
                 alt="Krishna Academy Logo" 
                 className="w-full h-full object-cover transition-transform group-hover:rotate-12"
                 referrerPolicy="no-referrer"
@@ -185,7 +185,7 @@ export default function App() {
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-brand-yellow rounded-2xl flex items-center justify-center overflow-hidden">
                     <img 
-                      src="/logo.jpeg" 
+                      src="https://res.cloudinary.com/djcl2t35x/image/upload/f_auto,q_auto/logo_hn38lc" 
                       alt="Logo" 
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
@@ -777,7 +777,7 @@ export default function App() {
               <div className="flex items-center gap-4 mb-10">
                 <div className="w-16 h-16 bg-brand-yellow rounded-[1.5rem] flex items-center justify-center overflow-hidden">
                   <img 
-                    src="/logo.jpeg" 
+                    src="https://res.cloudinary.com/djcl2t35x/image/upload/f_auto,q_auto/logo_hn38lc" 
                     alt="Krishna Academy Logo" 
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
