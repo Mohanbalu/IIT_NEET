@@ -15,7 +15,8 @@ import {
   X,
   ArrowRight,
   Star,
-  Layout
+  Layout,
+  Quote
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import Markdown from 'react-markdown';
@@ -28,7 +29,7 @@ export default function App() {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState<{ role: 'user' | 'model', text: string }[]>([
-    { role: 'model', text: 'Hi! I am your Krishna Academy assistant. How can I help you today with NEET/IIT coaching?' }
+    { role: 'model', text: 'Hi! I am your Krishna Academy assistant. How can I help you today with NEET/JEE coaching?' }
   ]);
   const [userInput, setUserInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -51,7 +52,7 @@ export default function App() {
           parts: [{ text: m.text }]
         })),
         config: {
-          systemInstruction: `You are a helpful and professional student support assistant for KRISHNA NEET/IIT ACADEMY in Guntur. 
+          systemInstruction: `You are a helpful and professional student support assistant for KRISHNA NEET/JEE ACADEMY in Guntur. 
           Your goal is to answer questions about:
           - Courses: BiPC (NEET & EAPCET), MPC (EAPCET).
           - Methodology: Vector 4D Method (Depth, Speed, Accuracy, Resilience).
@@ -142,7 +143,7 @@ export default function App() {
             </div>
             <div className="flex flex-col">
               <span className="text-white font-black text-xl leading-none tracking-tighter uppercase">KRISHNA</span>
-              <span className="text-brand-yellow text-[10px] font-black tracking-[0.2em] leading-none uppercase mt-1">NEET/IIT ACADEMY</span>
+              <span className="text-brand-yellow text-[10px] font-black tracking-[0.2em] leading-none uppercase mt-1">NEET/JEE ACADEMY</span>
             </div>
           </div>
 
@@ -260,31 +261,57 @@ export default function App() {
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-yellow/80 to-transparent"></div>
               <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
               
-              <div className="p-8 lg:p-14 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 relative z-10">
+              <div className="p-6 lg:p-10 flex flex-col-reverse lg:flex-row items-center justify-between gap-10 relative z-10">
                 {/* Left Content */}
                 <div className="flex-1 text-center lg:text-left">
                   <div className="inline-flex items-center gap-3 bg-brand-yellow/20 border border-brand-yellow/40 px-5 py-2 rounded-full mb-8 shadow-[0_0_30px_rgba(250,204,21,0.3)]">
-                    <span className="flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-yellow"></span>
-                    </span>
                     <span className="text-brand-yellow text-xs font-black uppercase tracking-[0.25em]">🔥 Admissions Open 2026</span>
                   </div>
                   
                   <h2 className="text-4xl lg:text-7xl font-black text-white mb-6 tracking-tighter uppercase leading-[0.85]">
-                    EAPCET | NEET | IIT <br />
+                    EAPCET <span className="text-brand-yellow mx-2">•</span> NEET <span className="text-brand-yellow mx-2">•</span> JEE <br />
                     <span className="text-brand-yellow drop-shadow-[0_0_15px_rgba(250,204,21,0.3)]">Elite Coaching</span>
                   </h2>
                   
-                  <div className="flex flex-wrap justify-center lg:justify-start items-center gap-8 mb-12">
+                  <div className="flex flex-col lg:flex-row lg:items-center gap-8 mb-12">
                     <div className="flex flex-col">
-                      <p className="text-white font-black text-3xl uppercase tracking-tighter leading-none">Short & Long Term</p>
-                      <p className="text-brand-yellow/60 text-[10px] font-bold uppercase tracking-[0.4em] mt-2">Available Batches</p>
+                      <p className="text-white font-black text-2xl uppercase tracking-tighter leading-tight">Admissions Open</p>
+                      <p className="text-brand-yellow/60 text-[10px] font-bold uppercase tracking-[0.2em] mt-2 max-w-[300px] mx-auto lg:mx-0">Limited Intake Program</p>
                     </div>
-                    <div className="hidden lg:block w-px h-12 bg-white/20"></div>
-                    <div className="bg-white/10 border border-white/20 px-8 py-4 rounded-2xl backdrop-blur-xl shadow-inner">
-                      <span className="text-brand-yellow text-base font-black uppercase tracking-widest block">Starting March 20</span>
-                      <span className="text-white/40 text-[9px] font-bold uppercase tracking-widest mt-1 block">Limited Intake Program</span>
+                    <div className="hidden lg:block w-px h-16 bg-white/20"></div>
+                    <div className="flex flex-col gap-4">
+                      <div className="flex items-center gap-3 bg-white/10 border border-white/20 px-6 py-3 rounded-2xl backdrop-blur-xl shadow-inner">
+                        <span className="text-brand-yellow text-xs font-black uppercase tracking-widest">Scalar Batch (8:00 AM – 2:00 PM)</span>
+                        <span className="w-1 h-1 bg-white/40 rounded-full" />
+                        <div className="flex items-center gap-2">
+                          <span className="text-white text-[10px] font-black tracking-tighter uppercase mr-1">12 Left</span>
+                          <div className="w-16 h-1 bg-white/10 rounded-full overflow-hidden">
+                            <motion.div 
+                              initial={{ width: 0 }}
+                              whileInView={{ width: '75%' }}
+                              transition={{ duration: 1.5, delay: 0.2 }}
+                              className="h-full bg-brand-yellow"
+                            />
+                          </div>
+                          <span className="text-white/40 text-[8px] font-bold uppercase tracking-widest italic">Filling Fast</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3 bg-white/10 border border-white/20 px-6 py-3 rounded-2xl backdrop-blur-xl shadow-inner">
+                        <span className="text-brand-yellow text-xs font-black uppercase tracking-widest">Vector Batch (8:00 AM – 8:00 PM)</span>
+                        <span className="w-1 h-1 bg-white/40 rounded-full" />
+                        <div className="flex items-center gap-2">
+                          <span className="text-white text-[10px] font-black tracking-tighter uppercase mr-1">8 Left</span>
+                          <div className="w-16 h-1 bg-white/10 rounded-full overflow-hidden">
+                            <motion.div 
+                              initial={{ width: 0 }}
+                              whileInView={{ width: '85%' }}
+                              transition={{ duration: 1.5, delay: 0.4 }}
+                              className="h-full bg-brand-yellow"
+                            />
+                          </div>
+                          <span className="text-white/40 text-[8px] font-bold uppercase tracking-widest italic">Almost Full</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   
@@ -317,36 +344,13 @@ export default function App() {
                     <div className="absolute -inset-2 bg-brand-yellow blur-xl opacity-30 group-hover/btn:opacity-60 transition duration-500"></div>
                     <button 
                       onClick={() => scrollToSection('lead-form')}
-                      className="relative bg-brand-yellow text-brand-blue px-16 py-8 rounded-[2.5rem] font-black text-3xl uppercase tracking-tighter flex items-center justify-center gap-6 hover:scale-105 transition-all active:scale-95 shadow-[0_20px_40px_-10px_rgba(250,204,21,0.4)]"
+                      className="relative bg-brand-yellow text-brand-blue px-12 py-6 rounded-[2rem] font-black text-2xl uppercase tracking-tighter flex items-center justify-center gap-4 hover:scale-105 transition-all active:scale-95 shadow-[0_20px_40px_-10px_rgba(250,204,21,0.4)]"
                     >
                       Book Seat Now
-                      <ArrowRight size={32} className="group-hover/btn:translate-x-3 transition-transform duration-300" />
+                      <ArrowRight size={28} className="group-hover/btn:translate-x-3 transition-transform duration-300" />
                     </button>
                   </div>
                   
-                  <div className="flex flex-col items-center lg:items-end gap-3">
-                    <div className="flex items-center gap-4">
-                      <div className="flex -space-x-3">
-                        {[1,2,3,4].map(i => (
-                          <div key={i} className="w-8 h-8 rounded-full border-2 border-brand-blue bg-slate-300 overflow-hidden shadow-lg">
-                            <img src={`https://i.pravatar.cc/100?u=${i+20}`} alt="Student" />
-                          </div>
-                        ))}
-                      </div>
-                      <div className="flex flex-col items-end">
-                        <span className="text-brand-yellow font-black text-xs uppercase tracking-[0.2em]">Only 12 Seats Left</span>
-                        <span className="text-white/30 text-[8px] font-bold uppercase tracking-widest">For 2026 Batch</span>
-                      </div>
-                    </div>
-                    <div className="w-48 h-1.5 bg-white/10 rounded-full overflow-hidden shadow-inner">
-                      <motion.div 
-                        initial={{ width: 0 }}
-                        whileInView={{ width: '78%' }}
-                        transition={{ duration: 2, ease: "circOut" }}
-                        className="h-full bg-gradient-to-r from-brand-yellow/50 to-brand-yellow"
-                      />
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -361,7 +365,7 @@ export default function App() {
           >
             <h1 className="text-[12vw] lg:text-[7.5rem] text-display text-white mb-8">
               Master <br />
-              <span className="gradient-text">NEET & IIT</span>
+              <span className="gradient-text">NEET & JEE</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/50 font-light leading-relaxed mb-12 max-w-2xl">
               Experience the <span className="text-white font-bold">Vector 4D Methodology</span>. A premium coaching ecosystem designed for elite performance in competitive exams.
@@ -632,35 +636,69 @@ export default function App() {
       </section>
 
       {/* Testimonials */}
-      <section className="section-padding bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-24">
-            <h2 className="text-brand-yellow font-black tracking-[0.3em] uppercase text-xs mb-6">Success Stories</h2>
-            <h3 className="text-5xl md:text-7xl font-black text-brand-blue leading-[0.9] tracking-tighter uppercase">
-              What Our <br />
-              <span className="text-slate-300">Achievers Say</span>
-            </h3>
+      <section className="section-padding bg-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full bg-[repeating-linear-gradient(45deg,_#000_0,_#000_1px,_transparent_0,_transparent_50%)] bg-[length:20px_20px]" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-24 gap-12">
+            <div className="max-w-3xl">
+              <h2 className="text-brand-yellow font-black tracking-[0.3em] uppercase text-xs mb-6">Success Stories</h2>
+              <h3 className="text-6xl md:text-8xl font-black text-brand-blue leading-[0.85] tracking-tighter uppercase">
+                Voices of <br />
+                <span className="text-slate-200">Excellence</span>
+              </h3>
+            </div>
+            <div className="flex flex-col items-start lg:items-end text-left lg:text-right">
+              <div className="flex gap-1 text-brand-yellow mb-4">
+                {[1, 2, 3, 4, 5].map(i => <Star key={i} size={24} fill="currentColor" />)}
+              </div>
+              <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">4.9/5 Based on 100+ Google Reviews</p>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
-              { name: "Rahul S.", review: "The Vector 4D method completely changed how I approach Physics. I went from struggling to scoring top marks in mock tests.", rank: "NEET Aspirant" },
-              { name: "Priya M.", review: "The faculty here is incredibly supportive. They don't just teach; they make sure you understand every single concept.", rank: "EAPCET Ranker" },
-              { name: "Anil K.", review: "Best short-term coaching in Guntur. The grand tests are exactly at the exam level, which helped me stay calm during the real exam.", rank: "IIT-JEE Student" }
+              { 
+                name: "Hruday Sattenapalli", 
+                review: "The best tution centre in guntur. Dr Krishna Reddy Sir, M Sc, BEd, M Tech, PhD describes the standards of the institution. Talented faculty with Discipline and Principles, trying to enhance the skills of each individual student. Thanks for the support and guidance to the Students. 🙏", 
+                meta: "5 Reviews • 3 Months Ago"
+              },
+              { 
+                name: "Hemalatha Mikkili", 
+                review: "Nice faculty. Teaching is very good. All teachers will be friendly with students and help them in clarifying their doubts.", 
+                meta: "3 Reviews • 6 Months Ago"
+              },
+              { 
+                name: "Kandru Mary Hema latha", 
+                review: "The best tuition center in guntur.very help full for IIT based students. The give explanation with the qualified faculty.", 
+                meta: "1 Review • 3 Months Ago"
+              }
             ].map((t, idx) => (
               <motion.div 
                 key={idx} 
-                whileHover={{ y: -15 }}
-                className="bg-white p-12 rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] border border-slate-100 relative group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                className="flex flex-col h-full"
               >
-                <div className="flex gap-1 text-brand-yellow mb-8">
-                  {[1, 2, 3, 4, 5].map(i => <Star key={i} size={16} fill="currentColor" />)}
-                </div>
-                <p className="text-slate-500 text-lg font-light italic mb-10 leading-relaxed">"{t.review}"</p>
-                <div className="flex items-center gap-5">
-                  <div>
-                    <div className="font-black text-brand-blue uppercase tracking-tight">{t.name}</div>
-                    <div className="text-xs text-brand-yellow font-black uppercase tracking-widest mt-1">{t.rank}</div>
+                <div className="bg-slate-50 p-10 rounded-[3rem] border border-slate-100 flex-1 flex flex-col relative group hover:bg-white hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] transition-all duration-500">
+                  <div className="absolute top-8 right-10 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <Quote size={60} />
+                  </div>
+                  
+                  <div className="flex gap-1 text-brand-yellow mb-8">
+                    {[1, 2, 3, 4, 5].map(i => <Star key={i} size={14} fill="currentColor" />)}
+                  </div>
+                  
+                  <p className="text-slate-600 text-lg font-medium leading-relaxed mb-10 flex-1">
+                    "{t.review}"
+                  </p>
+                  
+                  <div className="pt-8 border-t border-slate-200 mt-auto">
+                    <div className="font-black text-brand-blue uppercase tracking-tight text-xl">{t.name}</div>
+                    <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">{t.meta}</div>
                   </div>
                 </div>
               </motion.div>
@@ -792,7 +830,7 @@ export default function App() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-3xl font-black leading-none tracking-tighter uppercase">KRISHNA</span>
-                  <span className="text-brand-yellow text-xs font-black tracking-[0.3em] leading-none uppercase mt-2">NEET/IIT ACADEMY</span>
+                  <span className="text-brand-yellow text-xs font-black tracking-[0.3em] leading-none uppercase mt-2">NEET/JEE ACADEMY</span>
                 </div>
               </div>
               <p className="text-white/40 text-xl font-light max-w-md leading-relaxed mb-12">
@@ -834,7 +872,7 @@ export default function App() {
           </div>
           
           <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-white/20 text-xs font-black uppercase tracking-[0.4em]">
-            <span>© 2026 KRISHNA NEET/IIT ACADEMY</span>
+            <span>© 2026 KRISHNA NEET/JEE ACADEMY</span>
             <span>Crafted for Excellence</span>
           </div>
         </div>
