@@ -118,7 +118,12 @@ export default function App() {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-brand-blue/95 backdrop-blur-md py-4 shadow-2xl' : 'bg-transparent py-8'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.scrollTo(0, 0)}>
-            <div className="w-12 h-12 bg-brand-yellow rounded-2xl flex items-center justify-center font-black text-brand-blue text-2xl transition-transform group-hover:rotate-12">K</div>
+            <img 
+              src="logo.jpeg" 
+              alt="Krishna Academy Logo" 
+              className="w-12 h-12 rounded-2xl object-cover transition-transform group-hover:rotate-12"
+              referrerPolicy="no-referrer"
+            />
             <div className="flex flex-col">
               <span className="text-white font-black text-xl leading-none tracking-tighter uppercase">KRISHNA</span>
               <span className="text-brand-yellow text-[10px] font-black tracking-[0.2em] leading-none uppercase mt-1">NEET/IIT ACADEMY</span>
@@ -203,6 +208,113 @@ export default function App() {
         <div className="absolute -top-24 -right-24 w-[600px] h-[600px] bg-brand-yellow/5 rounded-full blur-[120px] pointer-events-none animate-pulse" />
         
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-16 items-center relative z-10">
+          {/* Promotional Banner Component */}
+          <motion.div 
+            initial={{ opacity: 0, y: -40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:col-span-12 mb-12 lg:mb-20 relative group"
+          >
+            {/* Animated Glow Background */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-brand-yellow/30 via-blue-500/30 to-brand-yellow/30 rounded-[2.5rem] blur-3xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+            
+            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-brand-blue/40 backdrop-blur-3xl shadow-2xl">
+              {/* Animated Gradient Border Overlay */}
+              <div className="absolute inset-0 opacity-20 bg-gradient-to-r from-brand-yellow via-brand-blue to-brand-yellow animate-gradient-border"></div>
+              
+              {/* Decorative inner glow */}
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-yellow/60 to-transparent"></div>
+              
+              <div className="p-8 lg:p-14 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 relative z-10">
+                {/* Left Content */}
+                <div className="flex-1 text-center lg:text-left">
+                  <div className="inline-flex items-center gap-3 bg-brand-yellow/20 border border-brand-yellow/30 px-5 py-2 rounded-full mb-8 shadow-[0_0_20px_rgba(250,204,21,0.2)]">
+                    <span className="flex h-2.5 w-2.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-yellow"></span>
+                    </span>
+                    <span className="text-brand-yellow text-xs font-black uppercase tracking-[0.2em]">🔥 Admissions Open 2026</span>
+                  </div>
+                  
+                  <h2 className="text-4xl lg:text-6xl font-black text-white mb-6 tracking-tighter uppercase leading-[0.9]">
+                    EAPCET | NEET | IIT <br />
+                    <span className="text-brand-yellow">Elite Coaching</span>
+                  </h2>
+                  
+                  <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6 mb-10">
+                    <div className="flex flex-col">
+                      <p className="text-white font-black text-2xl uppercase tracking-tighter">Short & Long Term</p>
+                      <p className="text-white/40 text-[10px] font-bold uppercase tracking-[0.3em]">Available Batches</p>
+                    </div>
+                    <div className="hidden lg:block w-px h-10 bg-white/10"></div>
+                    <div className="bg-white/5 border border-white/10 px-6 py-3 rounded-2xl backdrop-blur-md">
+                      <span className="text-brand-yellow text-sm font-black uppercase tracking-widest block">Starting March 20</span>
+                      <span className="text-white/30 text-[8px] font-bold uppercase tracking-widest">Limited Intake</span>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {[
+                      { text: 'Daily Tests', icon: <CheckCircle2 size={20} />, desc: 'Rigorous Practice' },
+                      { text: 'Expert Faculty', icon: <CheckCircle2 size={20} />, desc: 'Elite Mentorship' },
+                      { text: 'Rank Booster', icon: <CheckCircle2 size={20} />, desc: 'Score Optimization' }
+                    ].map((item, i) => (
+                      <motion.div 
+                        key={i} 
+                        whileHover={{ y: -5, backgroundColor: 'rgba(255,255,255,0.08)' }}
+                        className="flex items-center gap-4 bg-white/5 border border-white/5 p-4 rounded-2xl transition-colors"
+                      >
+                        <div className="w-10 h-10 bg-brand-yellow/10 rounded-xl flex items-center justify-center text-brand-yellow">
+                          {item.icon}
+                        </div>
+                        <div className="flex flex-col text-left">
+                          <span className="text-white font-black text-xs uppercase tracking-tight">{item.text}</span>
+                          <span className="text-white/30 text-[9px] font-bold uppercase tracking-widest">{item.desc}</span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Right Content (CTA) */}
+                <div className="w-full lg:w-auto flex flex-col items-center lg:items-end gap-6">
+                  <div className="relative group/btn">
+                    <div className="absolute -inset-1.5 bg-brand-yellow blur-lg opacity-20 group-hover/btn:opacity-40 transition duration-500"></div>
+                    <button 
+                      onClick={() => scrollToSection('lead-form')}
+                      className="relative bg-brand-yellow text-brand-blue px-14 py-7 rounded-[2rem] font-black text-2xl uppercase tracking-tighter flex items-center justify-center gap-5 hover:scale-105 transition-all active:scale-95 shadow-2xl shadow-brand-yellow/20"
+                    >
+                      Book Seat Now
+                      <ArrowRight size={28} className="group-hover/btn:translate-x-2 transition-transform" />
+                    </button>
+                  </div>
+                  
+                  <div className="flex flex-col items-center lg:items-end gap-2">
+                    <div className="flex items-center gap-3">
+                      <div className="flex -space-x-2">
+                        {[1,2,3].map(i => (
+                          <div key={i} className="w-6 h-6 rounded-full border border-brand-blue bg-slate-300 overflow-hidden">
+                            <img src={`https://i.pravatar.cc/100?u=${i+10}`} alt="Student" />
+                          </div>
+                        ))}
+                      </div>
+                      <span className="text-brand-yellow font-black text-[10px] uppercase tracking-[0.2em]">12 Seats Left</span>
+                    </div>
+                    <div className="w-32 h-1 bg-white/10 rounded-full overflow-hidden">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '70%' }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
+                        className="h-full bg-brand-yellow"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -210,10 +322,6 @@ export default function App() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7"
           >
-            <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-2 rounded-full text-brand-yellow font-black text-xs uppercase tracking-[0.2em] mb-10">
-              <span className="w-2 h-2 bg-brand-yellow rounded-full animate-ping" />
-              Admissions Open 2026
-            </div>
             <h1 className="text-[12vw] lg:text-[7.5rem] text-display text-white mb-8">
               Master <br />
               <span className="gradient-text">NEET & IIT</span>
@@ -273,22 +381,6 @@ export default function App() {
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-blue via-transparent to-transparent opacity-60" />
-              
-              <div className="absolute bottom-10 left-10 right-10">
-                <div className="glass-panel p-6 rounded-3xl">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="flex -space-x-3">
-                      {[1,2,3].map(i => (
-                        <div key={i} className="w-10 h-10 rounded-full border-2 border-brand-blue bg-slate-200 overflow-hidden">
-                          <img src={`https://i.pravatar.cc/100?u=${i}`} alt="Student" />
-                        </div>
-                      ))}
-                    </div>
-                    <span className="text-white font-bold text-sm">Join 30 Students</span>
-                  </div>
-                  <div className="text-white/60 text-xs uppercase tracking-widest">Enrollment closing soon for 2026 batch</div>
-                </div>
-              </div>
             </div>
 
             {/* Floating Elements */}
@@ -646,7 +738,12 @@ export default function App() {
           <div className="grid md:grid-cols-12 gap-20 mb-32">
             <div className="md:col-span-6">
               <div className="flex items-center gap-4 mb-10">
-                <div className="w-16 h-16 bg-brand-yellow rounded-[1.5rem] flex items-center justify-center font-black text-brand-blue text-3xl">K</div>
+                <img 
+                  src="logo.jpeg" 
+                  alt="Krishna Academy Logo" 
+                  className="w-16 h-16 rounded-[1.5rem] object-cover"
+                  referrerPolicy="no-referrer"
+                />
                 <div className="flex flex-col">
                   <span className="text-3xl font-black leading-none tracking-tighter uppercase">KRISHNA</span>
                   <span className="text-brand-yellow text-xs font-black tracking-[0.3em] leading-none uppercase mt-2">NEET/IIT ACADEMY</span>
