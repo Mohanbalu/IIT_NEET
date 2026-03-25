@@ -19,7 +19,6 @@ import {
   Quote
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import Markdown from 'react-markdown';
 
 import { GoogleGenAI } from "@google/genai";
 
@@ -39,33 +38,53 @@ export default function App() {
     if (!userInput.trim()) return;
 
     const userMessage = userInput.trim();
-    setChatMessages(prev => [...prev, { role: 'user', text: userMessage }]);
+    const newMessages = [...chatMessages, { role: 'user' as const, text: userMessage }];
+    setChatMessages(newMessages);
     setUserInput('');
     setIsTyping(true);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+      // Use environment variable if available and not a placeholder, otherwise fallback
+      let apiKey = process.env.GEMINI_API_KEY;
+      if (!apiKey || apiKey === "MY_GEMINI_API_KEY" || apiKey === "") {
+        apiKey = "AIzaSyBBbcUb4GbxPGM2cu-uygqq7UfyjEC-IgU";
+      }
+
+      const ai = new GoogleGenAI({ apiKey });
+      
+      // Filter out the initial greeting if it's the only model message at the start
+      // to ensure the conversation history is clean for the API
+      const apiContents = newMessages.map(m => ({
+        role: m.role === 'user' ? 'user' : 'model',
+        parts: [{ text: m.text }]
+      }));
+
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: [...chatMessages, { role: 'user', text: userMessage }].map(m => ({
-          role: m.role,
-          parts: [{ text: m.text }]
-        })),
+        contents: apiContents,
         config: {
-          systemInstruction: `You are a helpful and professional student support assistant for KRISHNA NEET/JEE ACADEMY in Guntur. 
-          Your goal is to answer questions about:
-          - Courses: BiPC (NEET & EAPCET), MPC (EAPCET).
-          - Methodology: Vector 4D Method (Depth, Speed, Accuracy, Resilience).
-          - Admissions: Classes begin March 20, 2026. Limited seats available.
-          - Facilities: Hostel available with food, security, and study halls.
-          - Contact: Phone 9704727292, Location Pattabhipuram Main Road, Guntur.
+          systemInstruction: `You are the official AI Support Assistant for KRISHNA NEET/JEE ACADEMY in Guntur. 
           
-          CRITICAL FORMATTING RULES:
-          1. DO NOT use Markdown symbols like asterisks (**) or bullet points (*) in your responses. 
-          2. Use plain, clean text for a professional look. 
-          3. Avoid bolding text unless absolutely necessary. 
-          4. Keep responses concise and friendly.
-          5. If you don't know an answer, direct them to call 9704727292.`
+          IDENTITY & TONE:
+          - Professional, helpful, and encouraging.
+          - Use clean, plain text ONLY.
+          
+          KNOWLEDGE BASE:
+          - Academy Name: KRISHNA NEET/JEE ACADEMY.
+          - Location: Pattabhipuram Main Road, Guntur.
+          - Contact: 9704727292.
+          - Courses: BiPC (NEET & EAPCET focus), MPC (EAPCET focus).
+          - Methodology: Vector 4D Method (Depth, Speed, Accuracy, Resilience).
+          - Admissions: Classes start March 20, 2026. Limited seats.
+          - Facilities: Premium hostels for boys and girls, 24/7 security, healthy food, dedicated study halls.
+          
+          STRICT RESPONSE RULES:
+          1. NEVER use Markdown formatting. No asterisks (*), no hashes (#), no bullet points (- or *).
+          2. Use standard paragraphs and line breaks for structure.
+          3. Keep answers direct and concise.
+          4. If a student asks for something you don't know, tell them to call our admissions head at 9704727292.
+          5. Do not mention other coaching centers.
+          6. Always maintain the prestige of Krishna Academy.`
         }
       });
 
@@ -73,7 +92,10 @@ export default function App() {
       setChatMessages(prev => [...prev, { role: 'model', text: aiResponse }]);
     } catch (error) {
       console.error("Chat error:", error);
-      setChatMessages(prev => [...prev, { role: 'model', text: "Sorry, I'm having trouble connecting. Please call us at 9704727292." }]);
+      const errorMessage = error instanceof Error && error.message === "API Key missing" 
+        ? "Chat is currently unavailable. Please contact us directly at 9704727292."
+        : "Sorry, I'm having trouble connecting. Please call us at 9704727292.";
+      setChatMessages(prev => [...prev, { role: 'model', text: errorMessage }]);
     } finally {
       setIsTyping(false);
     }
@@ -93,7 +115,14 @@ export default function App() {
     const name = formData.get('name');
     const phone = formData.get('phone');
     
-    const message = `Hi, I would like to reserve a seat at Krishna Academy.%0A%0A*Name:* ${name}%0A*Phone:* ${phone}`;
+    const message = encodeURIComponent(`*I'm ready to aim for the top!*
+
+I'd love to learn more about the programs at *Krishna Academy*.
+
+*Student Name:* ${name}
+*Contact:* ${phone}
+
+Please share the details!`);
     const whatsappUrl = `https://wa.me/919704727292?text=${message}`;
     
     // Simulate API call and then redirect
@@ -726,7 +755,7 @@ export default function App() {
             
             <form onSubmit={handleFormSubmit} className="max-w-md mx-auto space-y-6">
               <div className="relative group">
-                <Users className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-brand-yellow transition-colors" size={24} />
+                <Users className="absolute left-6 top-1/2 -translate-y-1/2 text-brand-blue/50 group-focus-within:text-brand-yellow transition-colors" size={24} />
                 <input 
                   type="text" 
                   name="name"
@@ -736,7 +765,7 @@ export default function App() {
                 />
               </div>
               <div className="relative group">
-                <Phone className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-brand-yellow transition-colors" size={24} />
+                <Phone className="absolute left-6 top-1/2 -translate-y-1/2 text-brand-blue/50 group-focus-within:text-brand-yellow transition-colors" size={24} />
                 <input 
                   type="tel" 
                   name="phone"
@@ -801,7 +830,7 @@ export default function App() {
                 allowFullScreen 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
-                className="grayscale group-hover:grayscale-0 transition-all duration-1000"
+                className="w-full h-full transition-all duration-1000"
               />
             </div>
           </div>
@@ -882,7 +911,7 @@ export default function App() {
 
       {/* Floating WhatsApp Button */}
       <a 
-        href="https://wa.me/919704727292?text=Hi%20I%20am%20interested%20in%20NEET%20coaching"
+        href="https://wa.me/919704727292?text=*I'm%20ready%20to%20aim%20for%20the%20top!*%0A%0AI'd%20love%20to%20learn%20more%20about%20the%20programs%20at%20*Krishna%20Academy*.%20Please%20share%20the%20details!"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-40 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform animate-bounce-slow"
@@ -918,11 +947,11 @@ export default function App() {
           Call Now
         </a>
         <a 
-          href="https://wa.me/919704727292?text=Hi%20I%20am%20interested%20in%20NEET%20coaching"
+          href="https://wa.me/919704727292?text=*I'm%20ready%20to%20aim%20for%20the%20top!*%0A%0AI'd%20love%20to%20learn%20more%20about%20the%20programs%20at%20*Krishna%20Academy*.%20Please%20share%20the%20details!"
           className="bg-[#25D366] text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2"
         >
           <MessageCircle size={18} fill="currentColor" />
-          WhatsApp
+          Chat Now
         </a>
       </div>
 
@@ -969,8 +998,8 @@ export default function App() {
                       ? 'bg-brand-blue text-white rounded-tr-none' 
                       : 'bg-white text-slate-700 shadow-sm border border-slate-100 rounded-tl-none'
                   }`}>
-                    <div className="markdown-body">
-                      <Markdown>{msg.text}</Markdown>
+                    <div className="whitespace-pre-wrap">
+                      {msg.text}
                     </div>
                   </div>
                 </div>
