@@ -794,7 +794,7 @@ export default function App() {
 
             <div className="rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] border-8 border-slate-50 h-[600px] relative group">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3829.620067347314!2d80.4244585759163!3d16.30034633276332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a75369622d77d%3A0x889895c1a7988383!2sPattabhipuram%20Main%20Rd%2C%20Guntur%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1711090000000!5m2!1sen!2sin" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3829.176472445588!2d80.4133381116499!3d16.31200548432924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x837733d9cdd87ebd%3A0xca9a632d2b4468!2sKRISHNA%20TUITIONS%20%26%20NEET%2FIIT%20ACADEMY%20EAPCET%2FEAMCET(Dr.%20D%20V%20Krishna%20Sir&#39;s)!5e0!3m2!1sen!2sin!4v1711360000000!5m2!1sen!2sin" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
