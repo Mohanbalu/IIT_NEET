@@ -624,7 +624,7 @@ Please share the details!`);
             >
               <div className="aspect-square rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] border-8 border-slate-50">
                 <img 
-                  src="https://lh3.googleusercontent.com/p/AF1QipO5dTva128I2AMchZg0DPJwy1OLl5yzi5k5F2ng=s1000" 
+                  src="https://res.cloudinary.com/djcl2t35x/image/upload/f_auto,q_auto/hotel_psd7ro" 
                   alt="Krishna Academy Residential Facility and Hostel" 
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
                   referrerPolicy="no-referrer"
